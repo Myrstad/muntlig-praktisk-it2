@@ -3,8 +3,12 @@ import pygame as pg
 from board import Board
 
 class GameOfLife(Board):
+  """GameOfLife er en implementasjon av "Livets spill".
+  
+  Det er et 0-player spill, med mulighet for å endre cellene og teste neste generasjon.
+  """
   def __init__(self, rows:int, columns:int, CELL_SIZE:int, init_pygame:bool = True) -> None:
-    """__init__ konstruktør til "spillets liv"
+    """__init__ konstruktør til "Livets spill"
 
     Args:
         rows (int): antall rader

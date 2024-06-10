@@ -1,4 +1,10 @@
 class Board(object):
+  """
+  Board er en generell brettklasse som kan bruker til alle brettspill,
+  eller spill der et brett kan brukes som en abstraksjon.
+
+  Eksempler på dette er "livets spill", "bondesjakk", "fire på rad" og sjakk
+  """
   def __init__(self, rows:int, columns:int) -> None:
     """__init__ konstruktør til Board (brett) klassen.
 

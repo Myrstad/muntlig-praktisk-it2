@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
-    <diagram id="m4FZ5BcBvq8vd2uuUn-C" name="Page-1">
-        <mxGraphModel dx="1214" dy="878" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
+    <diagram id="m4FZ5BcBvq8vd2uuUn-C" name="Klassediagram">
+        <mxGraphModel dx="686" dy="497" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="#ffffff" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -8,7 +8,7 @@
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="5" value="Board" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
-                    <mxGeometry x="340" y="260" width="230" height="230" as="geometry"/>
+                    <mxGeometry x="425" y="588" width="230" height="230" as="geometry"/>
                 </mxCell>
                 <mxCell id="6" value="+ grid: list[any]&#10;+columns: int&#10;+rows: int" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="5">
                     <mxGeometry y="26" width="230" height="52" as="geometry"/>
@@ -20,7 +20,7 @@
                     <mxGeometry y="86" width="230" height="144" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="Game Of Life(Board)" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=rgb(255, 255, 255);" vertex="1" parent="1">
-                    <mxGeometry x="340" y="570" width="230" height="270" as="geometry"/>
+                    <mxGeometry x="110" y="560" width="230" height="286" as="geometry"/>
                 </mxCell>
                 <mxCell id="11" value="+ WIDTH: int&#10;+ HEIGHT: int&#10;+ CELL SIZE: int&#10;+ screen: pygame.Surface&#10;- FPS: int&#10;+ clock: pygame.time.Clock" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="10">
                     <mxGeometry y="26" width="230" height="94" as="geometry"/>
@@ -28,8 +28,35 @@
                 <mxCell id="12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="10">
                     <mxGeometry y="120" width="230" height="8" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="+ get empty grid(self) -&gt; list&#10;+ get alive around(self, x:int, y:int); int&#10;+ rules(&#10;                self, &#10;                alive around:int, &#10;                is alive:bool          ):bool&#10;+ next generation(self): list[bool]&#10;+ draw grid(self): None&#10;+ loop(self): None" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="10">
-                    <mxGeometry y="128" width="230" height="142" as="geometry"/>
+                <mxCell id="13" value="+ get empty grid(self) -&gt; list&#10;+ get alive around(self, x:int, y:int); int&#10;+ rules(&#10;                self, &#10;                alive around:int, &#10;                is alive:bool&#10;           ):bool&#10;+ next generation(self): list[bool]&#10;+ draw grid(self): None&#10;+ loop(self): None" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="10">
+                    <mxGeometry y="128" width="230" height="158" as="geometry"/>
+                </mxCell>
+                <mxCell id="mKH9mPxzz2RMKMcuTQyQ-14" value="board (module)" style="shape=module;align=left;spacingLeft=20;align=center;verticalAlign=top;" vertex="1" parent="1">
+                    <mxGeometry x="415" y="360" width="230" height="150" as="geometry"/>
+                </mxCell>
+                <mxCell id="mKH9mPxzz2RMKMcuTQyQ-15" value="" style="edgeStyle=none;html=1;endArrow=block;endFill=0;" edge="1" parent="1" source="mKH9mPxzz2RMKMcuTQyQ-16" target="mKH9mPxzz2RMKMcuTQyQ-19">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="mKH9mPxzz2RMKMcuTQyQ-16" value="GameOfLife" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="396" width="140" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="mKH9mPxzz2RMKMcuTQyQ-17" value="+ attributes: ..." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="mKH9mPxzz2RMKMcuTQyQ-16">
+                    <mxGeometry y="26" width="140" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="mKH9mPxzz2RMKMcuTQyQ-18" value="+ methods: ..." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="mKH9mPxzz2RMKMcuTQyQ-16">
+                    <mxGeometry y="52" width="140" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="mKH9mPxzz2RMKMcuTQyQ-19" value="Board" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+                    <mxGeometry x="460" y="396" width="140" height="78" as="geometry"/>
+                </mxCell>
+                <mxCell id="mKH9mPxzz2RMKMcuTQyQ-20" value="+ attributes: ..." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="mKH9mPxzz2RMKMcuTQyQ-19">
+                    <mxGeometry y="26" width="140" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="mKH9mPxzz2RMKMcuTQyQ-21" value="+ methods: ..." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="mKH9mPxzz2RMKMcuTQyQ-19">
+                    <mxGeometry y="52" width="140" height="26" as="geometry"/>
+                </mxCell>
+                <mxCell id="7IYaTZbo6G8W5IVoWJrs-14" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;dashed=1;" vertex="1" parent="1">
+                    <mxGeometry x="110" y="530" width="550" height="8" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
