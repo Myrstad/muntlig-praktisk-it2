@@ -1,15 +1,15 @@
 import unittest
 from board import Board
 
-class TestCalculatorMethods(unittest.TestCase):
+class TestBoardMethods(unittest.TestCase):
   def test_size(self):
     self.assertEqual(len(Board(10, 10).grid), 100)
     self.assertEqual(len(Board(4, 100).grid), 400)
 
   def test_set_and_get(self):
     board = Board(10, 10)
-    board.set_value_from_index(0, "a")
-    board.set_value_from_index(10, "b")
+    board.set_index_to_value(0, "a")
+    board.set_index_to_value(10, "b")
 
     self.assertEqual(board.get_value_from_index(0), "a")
     self.assertEqual(board.get_value_from_index(10), "b")

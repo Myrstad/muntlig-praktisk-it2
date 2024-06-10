@@ -1,9 +1,9 @@
 import unittest
 from game_of_life import GameOfLife
 
-class TestCalculatorMethods(unittest.TestCase):
+class TestGameOfLifeMethods(unittest.TestCase):
   def test_rules(self):
-    game = GameOfLife(5, 5, 0)
+    game = GameOfLife(5, 5, 0, False)
     self.assertEqual(game.rules(0, True), 0)
     self.assertEqual(game.rules(1, True), 0)
     self.assertEqual(game.rules(2, True), 1)

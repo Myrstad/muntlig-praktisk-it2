@@ -25,6 +25,7 @@ class GameOfLife(Board):
       self.CELL_SIZE: int = CELL_SIZE
       #til PyGame
       self.screen: pg.Surface = pg.display.set_mode((self.WIDTH, self.HEIGHT))
+      pg.display.set_caption("Game Of Life | Myrstad")
       self._FPS: int = 60
       self.clock: pg.time.Clock = pg.time.Clock()
   
@@ -112,7 +113,7 @@ class GameOfLife(Board):
         pg.draw.rect(self.screen, "white", (x,y,x+self.CELL_SIZE,y+self.CELL_SIZE))
         pg.draw.rect(self.screen, "grey", (x,y,x+self.CELL_SIZE,y+self.CELL_SIZE), 1)
   
-  def loop(self):
+  def loop(self) -> None:
     """Hoved spill løkken."""
     running = True
     while running:

@@ -73,7 +73,7 @@ class Board(object):
       raise IndexError
     return self.grid[index]
   
-  def set_value_from_index(self, index:int, value: object) -> None:
+  def set_index_to_value(self, index:int, value: object) -> None:
     """Setter indeksen i brettet til verdien
 
     Args:
