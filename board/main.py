@@ -1,56 +1,88 @@
-import random as rand
-
 class Board(object):
-  def __init__(self, rows, columns) -> None:
+  def __init__(self, rows:int, columns:int) -> None:
+    """__init__ konstruktør til Board (brett) klassen.
+
+    Args:
+        rows (int): antall rader
+        columns (int): antall kolonner
+    """
     #1 er levende, 0 er død, 33% s
-    self.grid = [None for _ in range(columns) for _ in range(rows)]
+    self.grid: list = [None for _ in range(columns) for _ in range(rows)]
     #kolonner og rader
-    self.columns = columns
-    self.rows = rows
+    self.columns: int = columns
+    self.rows: int = rows
   
-  def init_grid_to_value(self, value) -> None:
+  def init_grid_to_value(self, value:object) -> None:
+    """Gjør om hele brettet til én verdi. 
+
+    Args:
+        value (object): any, hva som helst
+    """
     self.grid = [value for _ in self.grid]
   
   def empty_grid(self) -> None:
-    self.grid = [None for _ in range(self.grid)]
+    """Tømmer brettet."""
+    self.grid = [None for _ in self.grid]
 
-  def position_to_index(self, x, y):
-    return y*self.columns + x
-
-  def index_to_position(self, index):
-    return (index - index//self.columns*self.columns, index//self.columns)
-
-  def get_value_from_index(self, index) -> bool:
-    if index < 0:
-      return 0
-    if index >= len(self.grid):
-      return 0
-    return self.grid[index]
-
-  def get_values_around(self, x:int, y:int) -> list:
-    """Henter 'relative' posisjonene rundt posisjonen (x,y)
-    følger rekkefølgen fra venstre til høyre, fra opp til ned.
+  def position_to_index(self, x:int, y:int) -> int:
+    """position_to_index omgjøring fra posisjon til index.
 
     Args:
-        x (int): posisjonens x-verdi
-        y (int): posisjonens y-verdi
+        x (int): x-posisjon
+        y (int): y-posisjon
+
+    Raises:
+        ValueError: Ugyldig posisjon i brettet
 
     Returns:
-        list: verdiene rundt posisjonen
+        int: indeksen til posisjonen
     """
-    indexes = [] #indeksene til brettets .grid
-    for _x in range(-1, 2):
-      for _y in range(-1, 2):
-        if _x == 0 and _y == 0:
-          #skal ikke hente med seg selv
-          continue
-        #relative posisjoner
-        rx = _x + x
-        ry = _y + y
-        #hvis posisjonen er utenfor rammene til brettet
-        if rx == -1 or ry == -1 or rx >= self.columns or ry >= self.rows:
-          continue
-        indexes.append(self.position_to_index(rx, ry))
-    
-    return [self.get_value_from_index(idx) for idx in indexes]
+    if x < 0 or x >= self.columns or y < 0 or y >= self.rows:
+      raise ValueError("Not a valid position")
+    return y*self.columns + x
 
+  def index_to_position(self, index) -> tuple[int, int]:
+    """Gjør om indeks til tilsvarende posisjonen i brettet.
+
+    Args:
+        index (int): indeksen
+
+    Raises:
+        IndexError: ugyldig indeks, f.eks. negativ
+
+    Returns:
+        tuple[int, int]: posisjonen som svarer til indeksen
+    """
+    if index < 0 or index >= len(self.grid):
+      raise IndexError
+    return (index - index//self.columns*self.columns, index//self.columns)
+
+  def get_value_from_index(self, index:int) -> object:
+    """Henter verdi fra indeks til brettet.
+
+    Args:
+        index (int): indeksen
+
+    Raises:
+        IndexError: dersom indeksen er ugyldig
+
+    Returns:
+        object: any; hva som helst
+    """
+    if index < 0 or index >= len(self.grid):
+      raise IndexError
+    return self.grid[index]
+  
+  def set_value_from_index(self, index:int, value: object) -> None:
+    """Setter indeksen i brettet til verdien
+
+    Args:
+        index (int): indeksen
+        value (object): any, hva som helst
+
+    Raises:
+        IndexError: dersom indeksen er ugyldig
+    """
+    if index < 0 or index >= len(self.grid):
+      raise IndexError
+    self.grid[index] = value
